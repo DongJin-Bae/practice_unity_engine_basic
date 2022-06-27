@@ -8,22 +8,25 @@ public class Managers : MonoBehaviour
     static Managers Instance { get { Init(); return s_instance; } }
 
     InputManager _input = new InputManager();
+    ResourceManager _resource = new ResourceManager();
+
     public static InputManager Input { get { return Instance._input; } }
+    public static ResourceManager Resource { get { return Instance._resource; } }
 
     static void Init()
     {
-        string gobjName = "@Managers";
+        string objName = "@Managers";
         if (s_instance == null)
         {
-            GameObject gobj = GameObject.Find(gobjName);
-            if(gobj == null)
+            GameObject obj = GameObject.Find(objName);
+            if(obj == null)
             {
-                gobj = new GameObject { name = gobjName };
-                gobj.AddComponent<Managers>();
+                obj = new GameObject { name = objName };
+                obj.AddComponent<Managers>();
             }
 
-            DontDestroyOnLoad(gobj);
-            s_instance = gobj.GetComponent<Managers>();
+            DontDestroyOnLoad(obj);
+            s_instance = obj.GetComponent<Managers>();
         }
     }
 
