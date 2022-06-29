@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
     void OnMouseClicked(Define.MouseEvent evt)
     {
         //if (evt != Define.MouseEvent.Click) return;
-
+        
         if (_state == PlayerState.Die) return;
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
